@@ -1,0 +1,362 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bahay ni Kuya | House for Rent</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f2;
+    color: #26352d;
+}
+
+header {
+    background: #24584c;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+header h1 {
+    margin: 0 0 10px;
+}
+
+nav {
+    background: #183d34;
+    padding: 14px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 12px;
+    font-weight: bold;
+}
+
+.hero {
+    padding: 35px 20px;
+    text-align: center;
+    background: white;
+}
+
+.hero h2 {
+    font-size: 32px;
+}
+
+.price {
+    color: #247557;
+    font-size: 27px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+    padding: 25px 18px;
+}
+
+.section-title {
+    text-align: center;
+    margin: 35px 0 25px;
+}
+
+.rooms {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.room {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px #00000012;
+}
+
+.room img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    background: #dfe7df;
+}
+
+.room-content {
+    padding: 17px;
+}
+
+.room h3 {
+    margin-top: 0;
+    color: #24584c;
+}
+
+.description {
+    min-height: 55px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+
+.info,
+.contact {
+    background: white;
+    padding: 25px;
+    margin-top: 30px;
+    border-radius: 12px;
+}
+
+.info p {
+    line-height: 1.8;
+}
+
+.contact {
+    background: #24584c;
+    color: white;
+    text-align: center;
+}
+
+.contact a {
+    display: inline-block;
+    background: white;
+    color: #24584c;
+    padding: 13px 17px;
+    margin: 7px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+footer {
+    background: #183d34;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 35px;
+}
+
+@media (max-width: 850px) {
+    .rooms {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 550px) {
+    .rooms {
+        grid-template-columns: 1fr;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 6px;
+    }
+
+    .hero h2 {
+        font-size: 25px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1 id="houseName">BAHAY NI KUYA</h1>
+    <p>Dito maganda mag simula.</p>
+</header>
+
+<nav>
+    <a href="#rooms">House Gallery</a>
+    <a href="#details">Details</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero">
+    <h2>House for Rent</h2>
+    <p id="location">📍 Talipapa</p>
+    <p class="price" id="price">₱4,500 / 1 Month Advance</p>
+    <p class="price" id="price">₱4,500 / Monthly</p>
+    <p>Try nyo solid din to mga tropa.</p>
+</section>
+
+<main class="container">
+
+    <h2 class="section-title" id="rooms">
+        Explore the House
+    </h2>
+
+    <div class="rooms" id="roomGallery"></div>
+
+    <section class="info" id="details">
+        <h2>House Information</h2>
+
+        <p><strong>Monthly Rent:</strong> ₱4,500</p>
+        <p><strong>Location:</strong> Talipapa</p>
+        <p><strong>Bedrooms:</strong> 1 bedroom</p>
+        <p><strong>Bathrooms:</strong> 1 bathroom</p>
+
+        <p><strong>House Description: BAWAL MAY BATA</strong></p>
+
+        <p>
+            Whats up ma men. Rent na dito sa bahay ni kuya para
+            masaya, syempre di na kayo mapapagod dahil nasa baba
+            na ang palengke di kana lalayo at may motor ba? gawan
+            natin ng paraan yan. Rent na sa bahay ni Kuya.
+        </p>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2>Interested ka?</h2>
+        <p>Contacting mo na lang si bossing.</p>
+
+        <a id="callButton" href="tel:+639457183834">
+            📞 0945-718-3834
+        </a>
+
+        <a id="facebookButton"
+           href="https://web.facebook.com/profile.php?id=61595505060116"
+           target="_blank"
+           rel="noopener noreferrer">
+            💬 Facebook Messenger
+        </a>
+
+        <a id="instagramButton"
+           href="https://www.instagram.com/answer_27409/"
+           target="_blank"
+           rel="noopener noreferrer">
+            📸 Instagram Message
+        </a>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Bahay ni Kuya | House for Rent</p>
+</footer>
+
+<script>
+// Add your room photos and descriptions here.
+// Image paths must match your actual filenames.
+
+const rooms = [
+    {
+        name: "Front House / Entrance",
+        image: "Front Entrance.jpg",
+        description: "Ang baba ay palengke na."
+    },
+    {
+        name: "Stairs",
+        image: "Stair.jpg",
+        description: "Ingat-ingat lang talaga."
+    },
+    {
+        name: "Living Room",
+        image: "Living Room.jpg",
+        description: "All in one na."
+    },
+    {
+        name: "Kitchen",
+        image: "Kitchen.jpg",
+        description: "Simple lang pero ayos naman."
+    },
+    {
+        name: "Restroom",
+        image: "Restroom.jpg",
+        description: "Solid kumanta dito."
+    },
+    {
+        name: "Hallway",
+        image: "Hallway.jpg",
+        description: "Sakto lang."
+    },
+    {
+        name: "Bedroom",
+        image: "Bedroom.jpg",
+        description: "Pwede na sa mag asawa <3"
+    },
+    {
+        name: "Balcony",
+        image: "Balcony.jpg",
+        description: "Pag need mong mapag-isa."
+    }
+];
+
+const gallery = document.getElementById("roomGallery");
+
+rooms.forEach(function(room) {
+    const card = document.createElement("article");
+    card.className = "room";
+
+    // Display the photo for this room.
+    const image = document.createElement("img");
+    image.src = room.image;
+    image.alt = room.name;
+    image.loading = "lazy";
+
+    image.onerror = function() {
+        this.alt = room.name + " photo could not be loaded";
+        this.style.objectFit = "contain";
+    };
+
+    // Room title.
+    const title = document.createElement("h3");
+    title.textContent = room.name;
+
+    // Room description.
+    const description = document.createElement("p");
+    description.className = "description";
+    description.textContent = room.description;
+
+    const content = document.createElement("div");
+    content.className = "room-content";
+
+    content.appendChild(title);
+    content.appendChild(description);
+
+    card.appendChild(image);
+    card.appendChild(content);
+
+    gallery.appendChild(card);
+});
+
+// Property information.
+const property = {
+    name: "BAHAY NI KUYA",
+    location: "Talipapa",
+    price: "₱4,500 / month",
+    phone: "0945-718-3834",
+    facebook: "https://web.facebook.com/profile.php?id=61595505060116",
+    instagram: "https://www.instagram.com/answer_27409/"
+};
+
+// Update the website details.
+document.getElementById("houseName").textContent =
+    property.name;
+
+document.getElementById("location").textContent =
+    "📍 " + property.location;
+
+document.getElementById("price").textContent =
+    property.price;
+
+document.getElementById("callButton").href =
+    "tel:" + property.phone.replace(/[^\d+]/g, "");
+
+document.getElementById("facebookButton").href =
+    property.facebook;
+
+document.getElementById("instagramButton").href =
+    property.instagram;
+</script>
+
+</body>
+</html>
+```
